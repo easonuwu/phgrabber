@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pin Hwa Grabber</title>
+    </head>
+    <body>
+        <input id="input">
+        <button onclick="grab()">Grab</button><br>
+        <span id="output"></span>
+    </body>
+    <script>
+        function grab() {
+            id = document.getElementById("input").value
+            try {
+                intid = parseInt(id)
+                document.getElementById("output").innerText = "Opened in new tab. [" + id + "]"
+                window.open("https://sms.smpinhwa.edu.my/pinhwa/images/data/student/" + intid, "_blank");
+            } catch {
+                document.getElementById("output").innerText = "Invalid ID, try again."
+            }
+        }
+    </script>
+</html>
