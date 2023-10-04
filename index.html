@@ -5,8 +5,9 @@
     </head>
     <body>
         <input id="input">
-        <button onclick="grab()">Grab</button><br>
-        <span id="output"></span>
+        <button onclick="grab()">Open</button>&nbsp;<button onclick="img()">Show</button><br>
+        <span id="output"></span><br><br>
+        <img id="outimg">
     </body>
     <script>
         function grab() {
@@ -15,6 +16,19 @@
                 intid = parseInt(id)
                 document.getElementById("output").innerText = "Opened in new tab. [" + id + "]"
                 window.open("https://sms.smpinhwa.edu.my/pinhwa/images/data/student/" + intid, "_blank");
+
+            } catch {
+                document.getElementById("output").innerText = "Invalid ID, try again."
+            }
+        }
+
+        function img() {
+            id = document.getElementById("input").value
+            try {
+                intid = parseInt(id)
+                document.getElementById("output").innerText = "Opened in new tab. [" + id + "]"
+                document.getElementById("outimg").src="https://sms.smpinhwa.edu.my/pinhwa/images/data/student/" + intid
+                // window.open(, "_blank");
             } catch {
                 document.getElementById("output").innerText = "Invalid ID, try again."
             }
