@@ -62,14 +62,31 @@
                 <button onclick="grab()">Open</button>&nbsp;<button onclick="img()">Show</button><br><br>
                 <span id="output" style="color: white;"></span><br><br>
                 <img id="outimg"><br><br>
+                <button onclick="share()">Share</button><br>
                 <span class="dataH" id="data1x"></span><span class="data" id="data1"></span><br>
-                <span class="dataH" id="data2x"></span><span class="data" id="data2"></span><br>
+                <span class="dataH" id="data2x"></span><span class="data" id="data2"></span><br><br>
+                <span class="data" id="link"></span>
             </div><br><br><br>
             <span style="color: white;">© Copyright Funny Pin Hwa Grabber Online Free Pro Softwares LTD. 1923-2023</span><br><br><br>
             <a href="./petai"><div class="ad"></div></a>
         </div>
     </body>
     <script>
+        window.onload = function(){
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const product = urlParams.get('id')
+            img(product)
+        }
+        
+        function share() {
+              var copyText = document.getElementById("link");
+              copyText.select();
+              copyText.setSelectionRange(0, 99999); // For mobile devices
+              navigator.clipboard.writeText(copyText.value);
+              alert("Copied:" + copyText.value);
+        }
+        
         function grab() {
             id = document.getElementById("input").value
             try {
@@ -87,6 +104,7 @@
                 intid = parseInt(id)
                 document.getElementById("output").innerText = "[Info] Image shown below. [" + id + "]"
                 document.getElementById("outimg").src="https://sms.smpinhwa.edu.my/pinhwa/images/data/student/" + intid
+                document.getElementById("link").innerText = "https://ph.projects.epiceason.com/?id=" + intid
                 grabdt(id)
             } catch {
                 document.getElementById("output").innerText = "[Info] Invalid ID, try again."
