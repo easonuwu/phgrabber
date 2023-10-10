@@ -76,9 +76,8 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const product = urlParams.get('id')
-            url = new URL(window.location.href);
-            if (url.searchParams.has('id')) {
-                img(product)  
+            urlParams.has('id') {
+                img(product)
             }
         }
         
