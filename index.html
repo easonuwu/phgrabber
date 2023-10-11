@@ -75,10 +75,10 @@
         window.onload = function(){
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
-            const product = urlParams.get('id')
-            urlParams.has('id') {
-                img(product)
-            }
+            const product = urlParams.get('id');
+            if (urlParams.has('id')){
+                imgAuto(product)
+            };
         }
         
         function share() {
@@ -100,6 +100,18 @@
 
         function img() {
             id = document.getElementById("input").value
+            try {
+                intid = parseInt(id)
+                document.getElementById("output").innerText = "[Info] Image shown below. [" + id + "]"
+                document.getElementById("outimg").src="https://sms.smpinhwa.edu.my/pinhwa/images/data/student/" + intid
+                document.getElementById("link").innerText = "https://ph.projects.epiceason.com/?id=" + intid
+                grabdt(id)
+            } catch {
+                document.getElementById("output").innerText = "[Info] Invalid ID, try again."
+            }
+        }
+
+        function imgAuto(id) {
             try {
                 intid = parseInt(id)
                 document.getElementById("output").innerText = "[Info] Image shown below. [" + id + "]"
