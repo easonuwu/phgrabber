@@ -130,7 +130,7 @@
             id = document.getElementById("input").value
             try {
                 intid = parseInt(id)
-                doc = document.getElementById("output").innerText
+                doc = document.getElementById("output").innerHTML
                 document.getElementById("output").innerHTML = doc + "<br>" + '[Info] Student ID Image shown below [<a class="logs" target="_blank" href="https://ph.projects.epiceason.com/?id=' + id + ' ">' + id + "</a>]"
                 document.getElementById("outimg").src="https://sms.smpinhwa.edu.my/pinhwa/images/data/student/" + intid
                 document.getElementById("link").innerText = "https://ph.projects.epiceason.com/?id=" + intid
@@ -143,7 +143,7 @@
         function imgAuto(id) {
             try {
                 intid = parseInt(id)
-                doc = document.getElementById("output").innerText
+                doc = document.getElementById("output").innerHTML
                 document.getElementById("output").innerHTML = doc + "<br>" + '[Info] Student ID Image shown below (From Share Link). [<a class="logs" target="_blank" href="https://ph.projects.epiceason.com/?id=' + id + ' ">' + id + "</a>]"
                 document.getElementById("outimg").src="https://sms.smpinhwa.edu.my/pinhwa/images/data/student/" + intid
                 document.getElementById("link").innerText = "https://ph.projects.epiceason.com/?id=" + intid
