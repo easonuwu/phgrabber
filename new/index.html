@@ -2,13 +2,15 @@
 <html>
     <head>
         <title>Pin Hwa Grabber</title>
-        <script src="data/data_js.js"></script>
+        <script src="../data/data_js.js"></script>
     </head>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
         body {
-            background-color: rgb(88, 88, 88);
+            background-color: #EDD3C4;
             text-align: center;
-            font-family: sans-serif;
+            font-family: 'Tilt Neon', sans-serif;
             min-height: 100%;
             padding-bottom: 200px;
         }
@@ -16,25 +18,32 @@
         .content {
             margin: 50px;
             border-radius: 25px;
-            background-color: rgb(44, 44, 44);
+            background-color: #C8ADC0;
             padding: 50px;
         }
 
         h1 {
-            color: white;
+            color: #f0f0f0;
         }
 
         h2 {
-            color: white;
+            color: #f0f0f0;
         }
-        
-        button {
-            padding: 5px;
-            font-size: 20px;
-        }
+
         input {
             padding: 5px;
             font-size: 20px;
+            color: white;
+            width: 250px;
+            padding: 4.5px 13px 4.5px 13px;
+            border: 2px white solid;
+            background-color: transparent;
+            border-radius: 8px;
+            font-family: 'Tilt Neon', sans-serif;
+        }
+
+        input:focus {
+            outline: none;
         }
 
         .ad {
@@ -74,36 +83,54 @@
         }
 
         img {
-            width: 50%;
+            width: 100%;
         }
 
         button {
-            background-color: none;
             color: white;
-            padding: 4.5px 13px 4.5px 13px;
+            padding: 5px 13px 5px 13px;
             border: 2px white solid;
             background-color: transparent;
             border-radius: 8px;
+            font-size: 20px;
+            font-family: 'Tilt Neon', sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .contenter {
+            margin: 10px;
+            padding: 15px;
         }
     </style>
     <body>
         <div>
             <div class="content">
-                <h1>Pin Hwa Grabber Online Free Pro 2023</h1>
+                <h1>Pin Hwa Grabber</h1>
                 <input id="input" placeholder="Insert Pin Hwa StudentID">
                 <!-- <button onclick="grab()">Open</button>&nbsp; -->
-                <button onclick="img()" id="showBtn">Show</button><br><br>
-                <img id="outimg"><br><br><br>
-                <button onclick="share()">Share</button><br><br>
-                <span class="dataH" id="data1x"></span><span class="data" id="data1"></span><br>
-                <span class="dataH" id="data2x"></span><span class="data" id="data2"></span><br><br>
-                <span class="data" id="link"></span>
+                <button onclick="img()" id="showBtn">Show (Enter)</button><br><br>
+                <div class="container">
+                    <div class="contenter">
+                        <span class="dataH" id="data1x"></span><span class="data" id="data1"></span><br>
+                        <span class="dataH" id="data2x"></span><span class="data" id="data2"></span><br><br>
+                        <span class="data" id="link"></span><br><br>
+                        <button onclick="share()">Share</button><br><br>
+                        <!-- <a id="dl" href="" download="cool-student-picture"  target="_blank"><button>Download</button></a><br><br> -->
+                    </div>
+                    <div class="contenter">
+                        <img id="outimg">
+                    </div>
+                </div>
             </div>
             <div class="content">
                 <h2>Logs</h2>
                 <span id="output" style="color: white;"></span><br><br>
             </div>
-            <span style="color: white;">© Copyright Funny Pin Hwa Grabber Online Free Pro Softwares LTD. 1923-2023</span><br><br><br>
+            <span style="color: white;">© Copyright Active, All rights reserved. 1923-2023</span><br><br><br>
             <!-- <a href="./petai"><div class="ad" id="ad">
                 <a onclick="exitAd()"><div class="x">[X] Exit</div></a>
             </div></a> -->
@@ -139,17 +166,6 @@
               navigator.clipboard.writeText(copyText.innerText);
               alert("Copied: " + copyText.innerText);
         }
-        
-        function grab() {
-            id = document.getElementById("input").value
-            try {
-                intid = parseInt(id)
-                document.getElementById("output").innerText = "[Info] Opened in new tab. [" + id + "]"
-                window.open("https://sms.smpinhwa.edu.my/pinhwa/images/data/student/" + intid, "_blank");
-            } catch {
-                document.getElementById("output").innerText = "[Info] Invalid ID, try again."
-            }
-        }
 
         function img() {
             id = document.getElementById("input").value
@@ -158,6 +174,7 @@
                 doc = document.getElementById("output").innerHTML
                 document.getElementById("output").innerHTML = doc + "<br>" + '[Info] Student ID Image shown below [<a class="logs" target="_blank" href="https://ph.projects.epiceason.com/?id=' + id + ' ">' + id + "</a>]"
                 document.getElementById("outimg").src="https://sms.smpinhwa.edu.my/pinhwa/images/data/student/" + intid
+                // document.getElementById("dl").href="https://sms.smpinhwa.edu.my/pinhwa/images/data/student/" + intid
                 document.getElementById("link").innerText = "https://ph.projects.epiceason.com/?id=" + intid
                 grabdt(id)
             } catch {
